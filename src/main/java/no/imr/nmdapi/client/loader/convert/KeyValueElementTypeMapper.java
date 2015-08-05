@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
  *
  * @author sjurl
  */
-public class UDPListMapper implements RowMapper<KeyValueElementType> {
+public class KeyValueElementTypeMapper implements RowMapper<KeyValueElementType> {
 
     @Override
     public KeyValueElementType mapRow(ResultSet rs, int rowNum) throws SQLException {

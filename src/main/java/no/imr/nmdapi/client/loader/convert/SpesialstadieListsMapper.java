@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
  *
  * @author sjurl
  */
-public class SpesialstadierMapper implements RowMapper<SpesialstadieLists> {
+public class SpesialstadieListsMapper implements RowMapper<SpesialstadieLists> {
 
     @Override
     public SpesialstadieLists mapRow(ResultSet rs, int rowNum) throws SQLException {

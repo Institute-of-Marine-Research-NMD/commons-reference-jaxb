@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
  *
  * @author sjurl
  */
-public class TaxaMapper implements RowMapper<TaxaElementType> {
+public class TaxaElementTypeMapper implements RowMapper<TaxaElementType> {
 
     @Override
     public TaxaElementType mapRow(ResultSet rs, int rowNum) throws SQLException {

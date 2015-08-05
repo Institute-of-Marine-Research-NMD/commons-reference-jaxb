@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
  *
  * @author sjurl
  */
-public class TaxaSynonymWriter implements RowMapper<Synonym> {
+public class SynonymMapper implements RowMapper<Synonym> {
 
     @Override
     public Synonym mapRow(ResultSet rs, int rowNum) throws SQLException {
