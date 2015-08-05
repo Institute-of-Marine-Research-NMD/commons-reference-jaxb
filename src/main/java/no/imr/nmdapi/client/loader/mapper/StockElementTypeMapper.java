@@ -1,4 +1,4 @@
-package no.imr.nmdapi.client.loader.convert;
+package no.imr.nmdapi.client.loader.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

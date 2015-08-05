@@ -4,12 +4,12 @@ package no.imr.nmdapi.client.loader.dao;
 
 import java.util.List;
 import javax.sql.DataSource;
-import no.imr.nmdapi.client.loader.convert.RestrictionElementTypeMapper;
-import no.imr.nmdapi.client.loader.convert.SpesialstadieListsMapper;
-import no.imr.nmdapi.client.loader.convert.StockElementTypeMapper;
-import no.imr.nmdapi.client.loader.convert.TaxaElementTypeMapper;
-import no.imr.nmdapi.client.loader.convert.SynonymMapper;
-import no.imr.nmdapi.client.loader.convert.KeyValueElementTypeMapper;
+import no.imr.nmdapi.client.loader.mapper.RestrictionElementTypeMapper;
+import no.imr.nmdapi.client.loader.mapper.SpesialstadieListsMapper;
+import no.imr.nmdapi.client.loader.mapper.StockElementTypeMapper;
+import no.imr.nmdapi.client.loader.mapper.TaxaElementTypeMapper;
+import no.imr.nmdapi.client.loader.mapper.SynonymMapper;
+import no.imr.nmdapi.client.loader.mapper.KeyValueElementTypeMapper;
 import no.imr.nmdapi.client.loader.pojo.SpesialstadieLists;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.KeyValueElementType;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.RestrictionElementType;

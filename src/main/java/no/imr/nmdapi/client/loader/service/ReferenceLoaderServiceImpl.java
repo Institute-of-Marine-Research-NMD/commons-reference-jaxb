@@ -8,6 +8,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import no.imr.nmdapi.client.loader.convert.PlatformXMLWriter;
+import no.imr.nmdapi.client.loader.convert.TaxaConverter;
 import no.imr.nmdapi.client.loader.dao.PlatformCodeDAO;
 import no.imr.nmdapi.client.loader.dao.PlatformDAO;
 import no.imr.nmdapi.client.loader.dao.TaxaDAO;
@@ -55,56 +56,8 @@ public class ReferenceLoaderServiceImpl implements ReferenceLoaderServiceInterfa
 //
 //        LOGGER.info("FINISHED with platforms!");
 
-        TaxaElementListType taxaList = new TaxaElementListType();
-        List<TaxaElementType> taxas = taxaDAO.getAllTaxa();
-        for (TaxaElementType taxaElementType : taxas) {
-            List<TaxaElementType.TaxaSynonyms.Synonym> synonyms = taxaDAO.processPlatforms(taxaElementType.getId());
-            TaxaElementType.TaxaSynonyms tsyn = new TaxaElementType.TaxaSynonyms();
-            tsyn.getSynonym().addAll(synonyms);
-            taxaElementType.setTaxaSynonyms(tsyn);
-
-            List<SpesialstadieLists> spesialstadier = taxaDAO.getListsForTaxa(taxaElementType.getId());
-            TaxaListsElementType lists = new TaxaListsElementType();
-            for (SpesialstadieLists spesialstadieLists : spesialstadier) {
-                TaxaListElementType tlet = new TaxaListElementType();
-                tlet.setName(spesialstadieLists.getName());
-                switch (spesialstadieLists.getSexdependent()) {
-                    case 0:
-                        tlet.setSex(SexEnum.BOTH);
-                        break;
-                    case 1:
-                        tlet.setSex(SexEnum.FEMALE);
-                        break;
-                    case 2:
-                        tlet.setSex(SexEnum.MALE);
-                        break;
-                }
-
-                List<KeyValueElementType> keyvalues = taxaDAO.getKeyValueElements(spesialstadieLists.getId());
-                tlet.getElement().addAll(keyvalues);
-                lists.getList().add(tlet);
-            }
-            if (!lists.getList().isEmpty()) {
-                taxaElementType.setLists(lists);
-            }
-
-            RestrictionsElementType ret = new RestrictionsElementType();
-            List<RestrictionElementType> restrictions = taxaDAO.getRestrictionsForTaxa(taxaElementType.getId());
-            ret.getRestriction().addAll(restrictions);
-            if (!ret.getRestriction().isEmpty()) {
-                taxaElementType.setRestrictions(ret);
-            }
-
-            TaxaElementType.Stocks st = new TaxaElementType.Stocks();
-            List<StockElementType> stocks = taxaDAO.getStock(taxaElementType.getId());
-            st.getStock().addAll(stocks);
-            if(!st.getStock().isEmpty()){
-                taxaElementType.setStocks(st);
-            }
-            
-            taxaList.getTaxa().add(taxaElementType);
-        }
-
+        TaxaConverter taxaConverter = new TaxaConverter(taxaDAO);
+        TaxaElementListType taxaList = taxaConverter.generateTaxaJaxBData();
         writeToFile(taxaList);
 
         LOGGER.info("FINISHED with taxa!");
