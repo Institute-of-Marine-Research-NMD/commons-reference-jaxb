@@ -3,6 +3,7 @@ package no.imr.nmdapi.client.loader.config;
 import javax.sql.DataSource;
 import no.imr.nmdapi.client.loader.dao.AcousticCategoryDAO;
 import no.imr.nmdapi.client.loader.dao.EquipmentDAO;
+import no.imr.nmdapi.client.loader.dao.InstitutionDAO;
 import no.imr.nmdapi.client.loader.dao.PlatformDAO;
 import no.imr.nmdapi.client.loader.dao.TaxaDAO;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -53,4 +54,8 @@ public class PersistenceConfig {
         return new EquipmentDAO();
     }
 
+    @Bean
+    public InstitutionDAO institutionDAO() {
+        return new InstitutionDAO();    
+    }
 }
