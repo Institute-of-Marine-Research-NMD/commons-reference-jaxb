@@ -2,6 +2,7 @@ package no.imr.nmdapi.client.loader.convert;
 
 import no.imr.nmdapi.client.loader.dao.LanguageDAO;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.LanguageElementListType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -9,11 +10,8 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.LanguageElementListType;
  */
 public class LanguageConverter {
 
-    private final LanguageDAO languageDAO;
-
-    public LanguageConverter(LanguageDAO languageDAO) {
-        this.languageDAO = languageDAO;
-    }
+    @Autowired
+    private LanguageDAO languageDAO;
 
     public LanguageElementListType getLanguageElementList() {
         LanguageElementListType langList = new LanguageElementListType();

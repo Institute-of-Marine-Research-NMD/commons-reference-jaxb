@@ -2,6 +2,7 @@ package no.imr.nmdapi.client.loader.convert;
 
 import no.imr.nmdapi.client.loader.dao.InstitutionDAO;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.InstitutionElementListType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -9,11 +10,8 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.InstitutionElementListType;
  */
 public class InstitutionConverter {
 
-    private final InstitutionDAO institutionDAO;
-
-    public InstitutionConverter(InstitutionDAO institutionDAO) {
-        this.institutionDAO = institutionDAO;
-    }
+    @Autowired
+    private InstitutionDAO institutionDAO;
 
     public InstitutionElementListType getInstitutionElementListType() {
         InstitutionElementListType institutionList = new InstitutionElementListType();

@@ -12,6 +12,7 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.TaxaElementListType;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.TaxaElementType;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.TaxaListElementType;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.TaxaListsElementType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -19,11 +20,8 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.TaxaListsElementType;
  */
 public class TaxaConverter {
 
-    private final TaxaDAO taxaDAO;
-
-    public TaxaConverter(TaxaDAO taxaDAO) {
-        this.taxaDAO = taxaDAO;
-    }
+    @Autowired
+    private TaxaDAO taxaDAO;
 
     public TaxaElementListType generateTaxaJaxBData() {
         TaxaElementListType taxaList = new TaxaElementListType();

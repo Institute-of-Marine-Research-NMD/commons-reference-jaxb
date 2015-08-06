@@ -4,6 +4,7 @@ import java.util.List;
 import no.imr.nmdapi.client.loader.dao.AcousticCategoryDAO;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.AcousticCategoryElementListType;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.AcousticCategoryElementType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -11,11 +12,8 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.AcousticCategoryElementType;
  */
 public class AcousticCategoryConverter {
 
-    private final AcousticCategoryDAO acousticDAO;
-
-    public AcousticCategoryConverter(AcousticCategoryDAO acousticCategoryDAO) {
-        this.acousticDAO = acousticCategoryDAO;
-    }
+    @Autowired
+    private AcousticCategoryDAO acousticDAO;
 
     public AcousticCategoryElementListType generateAcousticCategoryListType() {
         AcousticCategoryElementListType acListType = new AcousticCategoryElementListType();

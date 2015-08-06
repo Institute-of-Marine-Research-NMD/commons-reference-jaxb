@@ -4,6 +4,7 @@ import java.util.List;
 import no.imr.nmdapi.client.loader.dao.PlatformDAO;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.PlatformElementListType;
 import no.imr.nmdapi.generic.nmdreference.domain.v1.PlatformElementType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -11,11 +12,8 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.PlatformElementType;
  */
 public class PlatformConverter {
 
-    private final PlatformDAO platformDAO;
-
-    public PlatformConverter(PlatformDAO platformDAO) {
-        this.platformDAO = platformDAO;
-    }
+    @Autowired
+    private PlatformDAO platformDAO;
 
     public PlatformElementListType getPlatformList() {
         PlatformElementListType platformList = new PlatformElementListType();
