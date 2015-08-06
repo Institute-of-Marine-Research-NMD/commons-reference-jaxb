@@ -7,9 +7,11 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import no.imr.nmdapi.client.loader.convert.AcousticCategoryConverter;
+import no.imr.nmdapi.client.loader.convert.EquipmentConverter;
 import no.imr.nmdapi.client.loader.convert.PlatformConverter;
 import no.imr.nmdapi.client.loader.convert.TaxaConverter;
 import no.imr.nmdapi.client.loader.dao.AcousticCategoryDAO;
+import no.imr.nmdapi.client.loader.dao.EquipmentDAO;
 import no.imr.nmdapi.client.loader.dao.PlatformDAO;
 import no.imr.nmdapi.client.loader.dao.TaxaDAO;
 import org.slf4j.LoggerFactory;
@@ -36,23 +38,31 @@ public class ReferenceLoaderServiceImpl implements ReferenceLoaderServiceInterfa
     @Autowired
     private AcousticCategoryDAO acousticCategoryDAO;
 
+    @Autowired
+    private EquipmentDAO equipmentDAO;
+
     @Override
     public void loadReferenceToXml() {
-
+        File baseDirectory = new File(config.getString("file.location"));
+        if(!baseDirectory.exists()){
+            baseDirectory.mkdirs();
+        }
+        
         PlatformConverter pc = new PlatformConverter(platformDAO);
-
-        writeToFile(pc.getPlatformList(), new File(config.getString("file.location").concat("platform.xml")));
-
+        writeToFile(pc.getPlatformList(), new File(baseDirectory.getAbsolutePath().concat("/platform.xml")));
         LOGGER.info("FINISHED with platforms!");
 
         TaxaConverter taxaConverter = new TaxaConverter(taxaDAO);
-        writeToFile(taxaConverter.generateTaxaJaxBData(), new File(config.getString("file.location").concat("taxa.xml")));
-
+        writeToFile(taxaConverter.generateTaxaJaxBData(), new File(baseDirectory.getAbsolutePath().concat("/taxa.xml")));
         LOGGER.info("FINISHED with taxa!");
 
         AcousticCategoryConverter acousticCategoryConverter = new AcousticCategoryConverter(acousticCategoryDAO);
-        writeToFile(acousticCategoryConverter.generateAcousticCategoryListType(), new File(config.getString("file.location").concat("acousticCategory.xml")));
+        writeToFile(acousticCategoryConverter.generateAcousticCategoryListType(), new File(baseDirectory.getAbsolutePath().concat("/acousticCategory.xml")));
         LOGGER.info("FINISHED with acoustic category!");
+
+        EquipmentConverter equipmentConverter = new EquipmentConverter(equipmentDAO);
+        writeToFile(equipmentConverter.generateEquipmentElementListType(), new File(baseDirectory.getAbsolutePath().concat("/equipment.xml")));
+        LOGGER.info("FINISHED with equipment!");
     }
 
     private void writeToFile(Object taxaList, File file) {
