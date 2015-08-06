@@ -6,6 +6,7 @@ import no.imr.nmdapi.client.loader.dao.EquipmentDAO;
 import no.imr.nmdapi.client.loader.dao.InstitutionDAO;
 import no.imr.nmdapi.client.loader.dao.LanguageDAO;
 import no.imr.nmdapi.client.loader.dao.MissionTypeDAO;
+import no.imr.nmdapi.client.loader.dao.NationDAO;
 import no.imr.nmdapi.client.loader.dao.PlatformDAO;
 import no.imr.nmdapi.client.loader.dao.TaxaDAO;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -69,5 +70,10 @@ public class PersistenceConfig {
     @Bean
     public MissionTypeDAO missionTypeDAO() {
         return new MissionTypeDAO();
+    }
+
+    @Bean
+    public NationDAO nationDAO() {
+        return new NationDAO();
     }
 }

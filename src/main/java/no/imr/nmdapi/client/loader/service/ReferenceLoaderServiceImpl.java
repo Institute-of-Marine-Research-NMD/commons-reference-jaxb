@@ -11,6 +11,7 @@ import no.imr.nmdapi.client.loader.convert.EquipmentConverter;
 import no.imr.nmdapi.client.loader.convert.InstitutionConverter;
 import no.imr.nmdapi.client.loader.convert.LanguageConverter;
 import no.imr.nmdapi.client.loader.convert.MissionTypeConverter;
+import no.imr.nmdapi.client.loader.convert.NationConverter;
 import no.imr.nmdapi.client.loader.convert.PlatformConverter;
 import no.imr.nmdapi.client.loader.convert.TaxaConverter;
 import org.slf4j.LoggerFactory;
@@ -49,6 +50,9 @@ public class ReferenceLoaderServiceImpl implements ReferenceLoaderServiceInterfa
     @Autowired
     private MissionTypeConverter missionTypeConverter;
 
+    @Autowired
+    private NationConverter nationConverter;
+
     @Override
     public void loadReferenceToXml() {
         File baseDirectory = new File(config.getString("file.location"));
@@ -76,6 +80,9 @@ public class ReferenceLoaderServiceImpl implements ReferenceLoaderServiceInterfa
 
         writeToFile(missionTypeConverter.generateMissionTypeElementList(), new File(baseDirectory.getAbsolutePath().concat("/missiontype.xml")));
         LOGGER.info("FINISHED with mission types!");
+
+        writeToFile(nationConverter.getNationElementListType(), new File(baseDirectory.getAbsolutePath().concat("/nation.xml")));
+        LOGGER.info("FINISHED with nation!");
     }
 
     private void writeToFile(Object taxaList, File file) {
