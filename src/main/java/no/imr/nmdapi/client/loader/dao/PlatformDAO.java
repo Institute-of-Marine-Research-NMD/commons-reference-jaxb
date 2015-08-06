@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
+ * Data access object for Platforms
  *
  * @author sjurl
  */
@@ -29,10 +30,22 @@ public class PlatformDAO {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * returns a list of platforms
+     *
+     * @return
+     */
     public List<PlatformElementType> processPlatforms() {
         return jdbcTemplate.query(QUERY, new PlatformElementTypeMapper());
     }
 
+    /**
+     * returns a list of platform codes for the platform matching the provided
+     * id
+     *
+     * @param id
+     * @return
+     */
     public List<PlatformElementType.PlatformCodes.PlatformCode> getPlatformCodesForPlatform(String id) {
         return jdbcTemplate.query(GET_PLATFORM_CODES_FOR_PLATFORM, new PlatformCodeMapper(), id);
     }

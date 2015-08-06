@@ -15,6 +15,7 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.TaxaListsElementType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * convert taxas into TaxaElementListType
  *
  * @author sjurl
  */

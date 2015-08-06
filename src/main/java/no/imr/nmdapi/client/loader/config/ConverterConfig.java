@@ -7,11 +7,13 @@ import no.imr.nmdapi.client.loader.convert.LanguageConverter;
 import no.imr.nmdapi.client.loader.convert.MissionTypeConverter;
 import no.imr.nmdapi.client.loader.convert.NationConverter;
 import no.imr.nmdapi.client.loader.convert.PlatformConverter;
+import no.imr.nmdapi.client.loader.convert.SeaAreasConverter;
 import no.imr.nmdapi.client.loader.convert.TaxaConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * Utility configuration for providing converter beans
  *
  * @author sjurl
  */
@@ -56,5 +58,10 @@ public class ConverterConfig {
     @Bean
     public NationConverter nationConverter() {
         return new NationConverter();
+    }
+
+    @Bean
+    public SeaAreasConverter seaAreasConverter() {
+        return new SeaAreasConverter();
     }
 }

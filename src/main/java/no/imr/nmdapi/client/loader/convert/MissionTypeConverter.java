@@ -5,6 +5,7 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.MissionTypeElementListType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * convert mission types into MissionTypeElementListType
  *
  * @author sjurl
  */

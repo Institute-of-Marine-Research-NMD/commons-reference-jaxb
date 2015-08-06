@@ -5,6 +5,7 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.InstitutionElementListType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * converts intitutions into InstitutionElementListType
  *
  * @author sjurl
  */

@@ -13,12 +13,15 @@ import no.imr.nmdapi.client.loader.convert.LanguageConverter;
 import no.imr.nmdapi.client.loader.convert.MissionTypeConverter;
 import no.imr.nmdapi.client.loader.convert.NationConverter;
 import no.imr.nmdapi.client.loader.convert.PlatformConverter;
+import no.imr.nmdapi.client.loader.convert.SeaAreasConverter;
 import no.imr.nmdapi.client.loader.convert.TaxaConverter;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
+ * Implementation of the reference loader service. This implementation generates
+ * the reference xml files based on data currently in the database
  *
  * @author sjurl
  */
@@ -26,6 +29,7 @@ import org.springframework.stereotype.Service;
 public class ReferenceLoaderServiceImpl implements ReferenceLoaderServiceInterface {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ReferenceLoaderServiceImpl.class);
+
     @Autowired
     private org.apache.commons.configuration.Configuration config;
 
@@ -52,6 +56,9 @@ public class ReferenceLoaderServiceImpl implements ReferenceLoaderServiceInterfa
 
     @Autowired
     private NationConverter nationConverter;
+
+    @Autowired
+    private SeaAreasConverter seaAreasConverter;
 
     @Override
     public void loadReferenceToXml() {
@@ -82,6 +89,9 @@ public class ReferenceLoaderServiceImpl implements ReferenceLoaderServiceInterfa
         LOGGER.info("FINISHED with mission types!");
 
         writeToFile(nationConverter.getNationElementListType(), new File(baseDirectory.getAbsolutePath().concat("/nation.xml")));
+        LOGGER.info("FINISHED with nation!");
+
+        writeToFile(seaAreasConverter.getSeaAreasElementListType(), new File(baseDirectory.getAbsolutePath().concat("/seaareas.xml")));
         LOGGER.info("FINISHED with nation!");
     }
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
+ * Data access object for language
  *
  * @author sjurl
  */
@@ -20,6 +21,11 @@ public class LanguageDAO {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * returns a list of languages
+     *
+     * @return
+     */
     public List<LanguageElementType> getLanguageElementType() {
         return jdbcTemplate.query("SELECT name, id, iso6391 from nmdreference.language", new LanguageElementTypeMapper());
     }

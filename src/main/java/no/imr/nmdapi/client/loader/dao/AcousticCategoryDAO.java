@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
+ * Data access object for acoustic categories
  *
  * @author sjurl
  */
@@ -20,6 +21,11 @@ public class AcousticCategoryDAO {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * Returns a list of acoustic categories
+     *
+     * @return
+     */
     public List<AcousticCategoryElementType> getAcousticCategories() {
         return jdbcTemplate.query("SELECT id, acousticcategory, initials, englishinitials, commonname, englishname, pgnapescode FROM nmdreference.acousticcategory", new AcousticCategoryElementTypeMapper());
     }

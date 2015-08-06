@@ -8,6 +8,7 @@ import no.imr.nmdapi.client.loader.dao.LanguageDAO;
 import no.imr.nmdapi.client.loader.dao.MissionTypeDAO;
 import no.imr.nmdapi.client.loader.dao.NationDAO;
 import no.imr.nmdapi.client.loader.dao.PlatformDAO;
+import no.imr.nmdapi.client.loader.dao.SeaAreasDAO;
 import no.imr.nmdapi.client.loader.dao.TaxaDAO;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * Configuration class containing the datasources
  *
  * @author sjurl
  */
@@ -75,5 +77,10 @@ public class PersistenceConfig {
     @Bean
     public NationDAO nationDAO() {
         return new NationDAO();
+    }
+
+    @Bean
+    public SeaAreasDAO seaAreasDAO() {
+        return new SeaAreasDAO();
     }
 }

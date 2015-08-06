@@ -2,17 +2,17 @@ package no.imr.nmdapi.client.loader.dao;
 
 import java.util.List;
 import javax.sql.DataSource;
-import no.imr.nmdapi.client.loader.mapper.NationElementTypeMapper;
-import no.imr.nmdapi.generic.nmdreference.domain.v1.NationElementType;
+import no.imr.nmdapi.client.loader.mapper.SeaAreasElementTypeMapper;
+import no.imr.nmdapi.generic.nmdreference.domain.v1.SeaAreasElementType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
- * Data access object for nations
+ * Data access object for sea areas
  *
  * @author sjurl
  */
-public class NationDAO {
+public class SeaAreasDAO {
 
     private JdbcTemplate jdbcTemplate;
 
@@ -22,11 +22,11 @@ public class NationDAO {
     }
 
     /**
-     * returns a list of nations
+     * Returns a list of sea areas
      *
      * @return
      */
-    public List<NationElementType> getNations() {
-        return jdbcTemplate.query("select id, nation, nationioc, nationname, pgnapescode FROM nmdreference.nation", new NationElementTypeMapper());
+    public List<SeaAreasElementType> getSeaAreas() {
+        return jdbcTemplate.query("select id, name, description from nmdreference.seaarea", new SeaAreasElementTypeMapper());
     }
 }

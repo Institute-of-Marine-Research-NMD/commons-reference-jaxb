@@ -7,6 +7,7 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.PlatformElementType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * convert platforms into PlatformElementListType
  *
  * @author sjurl
  */

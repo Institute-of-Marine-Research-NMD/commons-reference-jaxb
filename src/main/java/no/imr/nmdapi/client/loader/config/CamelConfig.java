@@ -6,6 +6,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * Configuration for camel
  *
  * @author sjurl
  */
@@ -19,7 +20,7 @@ public class CamelConfig extends SingleRouteCamelConfiguration implements Initia
             @Override
             public void configure() {
                 from("timer://harvesttimer?fixedRate=true&period=86400000")
-//                        .errorHandler(deadLetterChannel("jms:queue:dead").maximumRedeliveries(3).redeliveryDelay(30000))
+                        //                        .errorHandler(deadLetterChannel("jms:queue:dead").maximumRedeliveries(3).redeliveryDelay(30000))
                         .to("referenceLoaderService");
 //                        .to("log:end?level=INFO");
             }

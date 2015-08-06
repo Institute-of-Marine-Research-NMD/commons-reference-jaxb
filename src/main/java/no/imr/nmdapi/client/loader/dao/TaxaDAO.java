@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
+ * Data access object for taxa
  *
  * @author sjurl
  */
@@ -37,33 +38,69 @@ public class TaxaDAO {
 
     private static final String GET_RESTRICTION = "select rev.double_value, r.name, r.description from nmdreference.u_restriction_value rev, nmdreference.u_restriction r where rev.id_u_restriction = r.id and id_taxa = ?";
 
-        private static final String GET_STOCK = "select description, id, code from nmdreference.stock where id_taxa = ?";
+    private static final String GET_STOCK = "select description, id, code from nmdreference.stock where id_taxa = ?";
 
     @Autowired
     public void setDataSource(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * returns a list of all taxas
+     *
+     * @return
+     */
     public List<TaxaElementType> getAllTaxa() {
         return jdbcTemplate.query(GET_ALL_TAXA, new TaxaElementTypeMapper());
     }
 
+    /**
+     * returns a list of synonyms for the taxa matching the provided id
+     *
+     * @param id
+     * @return
+     */
     public List<Synonym> processPlatforms(String id) {
         return jdbcTemplate.query(GET_TAXA_SYNONYM, new SynonymMapper(), id);
     }
 
+    /**
+     * returns a list of special stages for the taxa matching the provided id
+     *
+     * @param id
+     * @return
+     */
     public List<SpesialstadieLists> getListsForTaxa(String id) {
         return jdbcTemplate.query(GET_TAXA_LISTS, new SpesialstadieListsMapper(), id);
     }
 
+    /**
+     * Returns a list of key value elements for the spesicalstage matching the
+     * provided id
+     *
+     * @param id
+     * @return
+     */
     public List<KeyValueElementType> getKeyValueElements(String id) {
         return jdbcTemplate.query(GET_UDP_LIST_ELEMENTS, new KeyValueElementTypeMapper(), id);
     }
 
+    /**
+     * returns a list of restrictions for the taxa matching the provided id
+     *
+     * @param id
+     * @return
+     */
     public List<RestrictionElementType> getRestrictionsForTaxa(String id) {
         return jdbcTemplate.query(GET_RESTRICTION, new RestrictionElementTypeMapper(), id);
     }
 
+    /**
+     * returns a list of stocks for the taxa matching the provided id
+     *
+     * @param id
+     * @return
+     */
     public List<StockElementType> getStock(String id) {
         return jdbcTemplate.query(GET_STOCK, new StockElementTypeMapper(), id);
     }

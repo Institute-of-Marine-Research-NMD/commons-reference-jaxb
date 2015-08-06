@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
+ * Data access object for mission types
  *
  * @author sjurl
  */
@@ -20,6 +21,11 @@ public class MissionTypeDAO {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * returns a list of mission types
+     *
+     * @return
+     */
     public List<MissionTypeElementType> getMissionTypes() {
         return jdbcTemplate.query("select id, code, description from nmdreference.missiontype", new MissionTypeElementTypeMapper());
     }

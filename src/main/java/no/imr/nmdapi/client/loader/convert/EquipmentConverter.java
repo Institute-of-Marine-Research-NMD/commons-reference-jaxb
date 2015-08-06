@@ -5,6 +5,7 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.EquipmentElementListType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * converts equipments into EquipmentElementListType
  *
  * @author sjurl
  */

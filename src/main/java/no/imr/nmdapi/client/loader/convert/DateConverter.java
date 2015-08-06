@@ -7,6 +7,7 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
+ * Utility class for converting date objects into XMLGregorianCalendar objects
  *
  * @author sjurl
  */

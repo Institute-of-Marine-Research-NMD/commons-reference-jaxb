@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
+ * Data access object for institutions
  *
  * @author sjurl
  */
@@ -20,6 +21,11 @@ public class InstitutionDAO {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * returns a list of institutions
+     *
+     * @return
+     */
     public List<InstitutionElementType> getInstitutions() {
         return jdbcTemplate.query("select id, nation, institution, instname, instadress, instphone, instemail from nmdreference.institution", new InstitutionElementTypeMapper());
     }

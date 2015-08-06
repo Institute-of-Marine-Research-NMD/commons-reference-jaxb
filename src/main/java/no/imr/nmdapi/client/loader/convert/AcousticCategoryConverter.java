@@ -7,6 +7,7 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.AcousticCategoryElementType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * converts acoustic categories to a list of AcousticCategoryElementListType
  *
  * @author sjurl
  */

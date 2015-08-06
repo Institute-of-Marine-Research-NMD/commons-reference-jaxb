@@ -5,6 +5,7 @@ import no.imr.nmdapi.generic.nmdreference.domain.v1.LanguageElementListType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * converts language into LanguageElementListType
  *
  * @author sjurl
  */
