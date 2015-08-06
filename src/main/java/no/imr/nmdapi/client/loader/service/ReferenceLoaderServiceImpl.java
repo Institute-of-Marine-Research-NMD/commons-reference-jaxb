@@ -9,11 +9,13 @@ import javax.xml.bind.Marshaller;
 import no.imr.nmdapi.client.loader.convert.AcousticCategoryConverter;
 import no.imr.nmdapi.client.loader.convert.EquipmentConverter;
 import no.imr.nmdapi.client.loader.convert.InstitutionConverter;
+import no.imr.nmdapi.client.loader.convert.LanguageConverter;
 import no.imr.nmdapi.client.loader.convert.PlatformConverter;
 import no.imr.nmdapi.client.loader.convert.TaxaConverter;
 import no.imr.nmdapi.client.loader.dao.AcousticCategoryDAO;
 import no.imr.nmdapi.client.loader.dao.EquipmentDAO;
 import no.imr.nmdapi.client.loader.dao.InstitutionDAO;
+import no.imr.nmdapi.client.loader.dao.LanguageDAO;
 import no.imr.nmdapi.client.loader.dao.PlatformDAO;
 import no.imr.nmdapi.client.loader.dao.TaxaDAO;
 import org.slf4j.LoggerFactory;
@@ -46,6 +48,9 @@ public class ReferenceLoaderServiceImpl implements ReferenceLoaderServiceInterfa
     @Autowired
     private InstitutionDAO institutionDAO;
 
+    @Autowired
+    private LanguageDAO languageDAO;
+
     @Override
     public void loadReferenceToXml() {
         File baseDirectory = new File(config.getString("file.location"));
@@ -72,6 +77,10 @@ public class ReferenceLoaderServiceImpl implements ReferenceLoaderServiceInterfa
         InstitutionConverter insitutionConverter = new InstitutionConverter(institutionDAO);
         writeToFile(insitutionConverter.getInstitutionElementListType(), new File(baseDirectory.getAbsolutePath().concat("/institution.xml")));
         LOGGER.info("FINISHED with institution!");
+
+        LanguageConverter languageConverter = new LanguageConverter(languageDAO);
+        writeToFile(languageConverter.getLanguageElementList(), new File(baseDirectory.getAbsolutePath().concat("/language.xml")));
+        LOGGER.info("FINISHED with language!");
     }
 
     private void writeToFile(Object taxaList, File file) {
