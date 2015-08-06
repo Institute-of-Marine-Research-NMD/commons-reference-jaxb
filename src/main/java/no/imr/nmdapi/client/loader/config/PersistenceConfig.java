@@ -1,9 +1,6 @@
-/*
- */
 package no.imr.nmdapi.client.loader.config;
 
 import javax.sql.DataSource;
-import no.imr.nmdapi.client.loader.dao.PlatformCodeDAO;
 import no.imr.nmdapi.client.loader.dao.PlatformDAO;
 import no.imr.nmdapi.client.loader.dao.TaxaDAO;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -37,11 +34,6 @@ public class PersistenceConfig {
     @Bean
     public PlatformDAO platformDAO() {
         return new PlatformDAO();
-    }
-
-    @Bean
-    public PlatformCodeDAO platformCodeDAO() {
-        return new PlatformCodeDAO();
     }
 
     @Bean
