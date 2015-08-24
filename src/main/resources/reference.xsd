@@ -1,0 +1,385 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.imr.no/formats/nmdreference/v1" targetNamespace="http://www.imr.no/formats/nmdreference/v1" elementFormDefault="qualified" version="1.0">
+    <!--
+            Root elements
+    -->
+    <xs:element name="acousticCategoryList" type="acousticCategoryElementListType" />
+    <xs:element name="equipmentList" type="equipmentElementListType" />
+    <xs:element name="missionTypeList" type="missionTypeElementListType" />
+    <xs:element name="languageList" type="languageElementListType" />
+    <xs:element name="nationList" type="nationElementListType" />
+    <xs:element name="platformList" type="platformElementListType" />
+    <xs:element name="platformTypeList" type="platformTypeElementListType" />
+    <xs:element name="seaAreasList" type="seaAreasElementListType" />
+    <xs:element name="taxaList" type="taxaElementListType" />
+    <xs:element name="institutionList" type="institutionElementListType" />
+    <xs:element name="list" type="keyValueElementListType" />
+    <xs:element name="tableList" type="tableListElementListType" />
+    <!--
+            List element types.
+    -->
+    <xs:complexType name="acousticCategoryElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="acousticCategoryElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="equipmentElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="equipmentElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="missionTypeElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="missionTypeElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="languageElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="languageElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="nationElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="nationElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="platformElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="platform" type="platformElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="platformTypeElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="platformTypeElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="seaAreasElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="seaAreasElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- List definition for taxa -->
+    <xs:complexType name="taxaElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="taxa" type="taxaElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- List definition for institution lists -->
+    <xs:complexType name="institutionElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="institutionElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- List definition for key value lists. -->
+    <xs:complexType name="keyValueElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="keyValueElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!--
+        Acoustic category list element.
+    -->
+    <xs:complexType name="acousticCategoryElementType" >
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="acousticcategory" type="xs:integer"/>
+        <xs:attribute name="initials" type="xs:string"/>
+        <xs:attribute name="englishInitials" type="xs:string"/>
+        <xs:attribute name="commonName" type="xs:string"/>
+        <xs:attribute name="englishName" type="xs:string"/>
+        <xs:attribute name="pgnapescode" type="xs:string"/>
+    </xs:complexType>
+
+    <!-- Equipment type element -->
+    <xs:complexType name="equipmentElementType">
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="code" type="xs:integer"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="area" type="xs:decimal"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
+
+    <!-- Missiontype element type -->
+    <xs:complexType name="missionTypeElementType">
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="code" type="xs:integer" />
+        <xs:attribute name="description" type="xs:string" />
+    </xs:complexType>
+
+    <!-- Language element type -->
+    <xs:complexType name="languageElementType">
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="iso6391" type="xs:string"/>
+    </xs:complexType>
+
+    <!-- Nation element type -->
+    <xs:complexType name="nationElementType">
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="nation" type="xs:integer"/>
+        <xs:attribute name="nationioc" type="xs:string"/>
+        <xs:attribute name="nationname" type="xs:string"/>
+        <xs:attribute name="lastEdited" type="xs:dateTime"/>
+        <xs:attribute name="pgnapescode" type="xs:string"/>
+    </xs:complexType>
+
+    <!-- PlatformType type element -->
+    <xs:complexType name="platformTypeElementType">
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="type" type="xs:integer"/>
+        <xs:attribute name="subtype" type="xs:integer"/>
+        <xs:attribute name="typeName" type="xs:string"/>
+        <xs:attribute name="subtypeName" type="xs:string"/>
+    </xs:complexType>
+
+    <!-- Platform element type -->
+    <xs:complexType name="platformElementType">
+        <xs:sequence>
+            <xs:element name="nation" type="nationType" />
+            <xs:element name="institution" type="institutionType" />
+            <xs:element name="platformType" type="platformType" />
+            <xs:element name="platformCodes" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="platformCode" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:attribute name="validFrom" type="xs:dateTime" />
+                                <xs:attribute name="validTo" type="xs:dateTime" />
+                                <xs:attribute name="platformCode" type="xs:string" />
+                                <xs:attribute name="sysCode" type="xs:int" />
+                                <xs:attribute name="sysName" type="xs:string" />
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="platformNumber" type="xs:int" />
+    </xs:complexType>
+
+
+    <xs:complexType name="nationType">
+        <xs:simpleContent>
+            <xs:extension base="xs:integer">
+                <xs:attribute name="name" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="platformType">
+        <xs:simpleContent>
+            <xs:extension base="xs:integer">
+                <xs:attribute name="description" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="institutionType">
+        <xs:simpleContent>
+            <xs:extension base="xs:integer">
+                <xs:attribute name="name" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- Taxa element type -->
+    <xs:complexType name="taxaElementType">
+        <xs:sequence>
+            <xs:element name="restrictions" type="restrictionsElementType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="lists" type="taxaListsElementType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="stocks" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="stock" type="stockElementType" minOccurs="1" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="taxaSynonyms" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="synonym" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:attribute name="language" type="xs:string" />
+                                <xs:attribute name="name" type="xs:string" />
+                                <xs:attribute name="preferred" type="xs:int" />
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="tsn" type="xs:integer"/>
+        <xs:attribute name="aphiaid" type="xs:string"/>
+        <xs:attribute name="imr" type="xs:int"/>
+        <xs:attribute name="nodc" type="xs:string"/>
+        <xs:attribute name="fao" type="xs:string"/>
+        <xs:attribute name="information" type="xs:string"/>
+        <xs:attribute name="pgnapes" type="xs:string"/>
+        <xs:attribute name="ruCode" type="xs:int"/>
+    </xs:complexType>
+
+    <!-- Stock element type. Used in taxa element-->
+    <xs:complexType name="stockElementType">
+        <xs:sequence>
+            <xs:element name="restrictions" type="restrictionsElementType" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="description" type="xs:string" />
+    </xs:complexType>
+
+    <!-- Container list for all restrictions -->
+    <xs:complexType name="restrictionsElementType">
+        <xs:sequence>
+            <xs:element name="restriction" type="restrictionElementType" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Restriction definition for either a taxa or a stock -->
+    <xs:complexType name="restrictionElementType">
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="description" type="xs:string" />
+        <xs:attribute name="value" type="xs:string" />
+    </xs:complexType>
+
+    <!-- List definitions for taxa -->
+    <xs:complexType name="taxaListsElementType">
+        <xs:sequence>
+            <xs:element name="list" type="taxaListElementType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Definition for a taxa list -->
+    <xs:complexType name="taxaListElementType">
+        <xs:sequence>
+            <xs:element name="element" type="keyValueElementType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="sex" type="sexEnum" />
+    </xs:complexType>
+
+    <!-- Sea areas element type -->
+    <xs:complexType name="seaAreasElementType">
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="description" type="xs:string" />
+    </xs:complexType>
+
+    <!-- Institution type element -->
+    <xs:complexType name="institutionElementType">
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="institution" type="xs:integer"/>
+        <xs:attribute name="nation" type="xs:integer"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="adress" type="xs:string"/>
+        <xs:attribute name="phone" type="xs:string"/>
+        <xs:attribute name="email" type="xs:string"/>
+    </xs:complexType>
+
+    <!--
+        Key value list element.
+    -->
+    <xs:complexType name="keyValueElementType" >
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="shortname" type="xs:string"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="description" type="xs:string"/>
+        <xs:attribute name="validFrom" type="xs:dateTime"/>
+        <xs:attribute name="validTo" type="xs:dateTime"/>
+    </xs:complexType>
+
+    <!--
+        Generic type used for all list elements.
+    -->
+    <xs:attributeGroup name="genericAttrGroup">
+        <xs:attribute name="id" type="xs:string"/>
+        <xs:attribute name="deprecated" type="xs:boolean"/>
+        <xs:attribute name="new" type="xs:string"/>
+        <xs:attribute name="deprecatedWhen" type="xs:dateTime"/>
+    </xs:attributeGroup>
+
+    <!-- Sex definitions used for taxa lists -->
+    <xs:simpleType name="sexEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MALE" />
+            <xs:enumeration value="FEMALE" />
+            <xs:enumeration value="BOTH" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Table list element type -->
+    <xs:complexType name="tableListElementListType">
+        <xs:sequence>
+            <xs:element name="element" type="tableListElementType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="tableListElementType">
+        <xs:attributeGroup ref="genericAttrGroup" />
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="description" type="xs:string" />
+    </xs:complexType>
+
+    <!-- -->
+    <xs:complexType name="listHeaderAbstractType">
+        <xs:sequence>
+            <xs:element name="lastChanged" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

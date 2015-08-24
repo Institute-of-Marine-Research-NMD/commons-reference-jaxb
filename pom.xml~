@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>no.imr.nmd.commons.reference.jaxb</groupId>
-    <artifactId>commons-reference-jaxb</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <groupId>no.imr.nmd.commons.echosounder.jaxb</groupId>
+    <artifactId>commons-echosounder-jaxb</artifactId>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
-    <name>Commons - Reference JaxB</name>
+    <name>Commons - Echosounder JaxB</name>
     <repositories>
         <repository>
             <id>nexus-release</id>
             <name>Nexus release repository for IMR</name>
-            <url>http://build.imr.no/nexus/content/repositories/releases/</url>
+            <url>http://javadev.imr.no:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>repository.springsource.milestone</id>
+            <name>SpringSource Milestone Repository</name>
+            <url>http://repo.springsource.org/milestone</url>
         </repository>
     </repositories>
     <properties>
@@ -18,6 +23,15 @@
         <jaxb.version>2.1.17</jaxb.version>
         <additionalparam>-Xdoclint:none</additionalparam>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
     <build>
         <plugins>
             <plugin>
@@ -38,7 +52,7 @@
                             <bindingDirectory>${basedir}/src/main/bindings</bindingDirectory>
                             <episode>true</episode>
                             <extension>true</extension>
-                            <generatePackage>no.imr.commons.nmdreference.domain.v1</generatePackage>
+                            <generatePackage>no.imr.nmdapi.generic.nmdechosounder.domain.luf20</generatePackage>
                             <args>
                                 <arg>-Xannotate</arg>
                                 <arg>-Xnamespace-prefix</arg>
@@ -105,9 +119,10 @@
         </profile>
     </profiles>
     <scm>
-        <connection>scm:git:git@github.com:Institute-of-Marine-Research-NMD/commons-reference-jaxb.git</connection>
-        <url>scm:git:git@github.com:Institute-of-Marine-Research-NMD/commons-reference-jaxb.git</url>
-        <developerConnection>scm:git:git@github.com:Institute-of-Marine-Research-NMD/commons-reference-jaxb.git</developerConnection>
+        <connection>scm:git:git@github.com:Institute-of-Marine-Research-NMD/commons-echosounder-jaxb.git</connection>
+        <url>scm:git:git@github.com:Institute-of-Marine-Research-NMD/commons-echosounder-jaxb.git</url>
+        <developerConnection>scm:git:git@github.com:Institute-of-Marine-Research-NMD/commons-echosounder-jaxb.git</developerConnection>
+        <tag>commons-echosounder-jaxb-1.0.1</tag>
     </scm>
     <distributionManagement>
         <repository>
