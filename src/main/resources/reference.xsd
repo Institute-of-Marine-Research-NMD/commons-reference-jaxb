@@ -99,6 +99,17 @@
         </xs:complexContent>
     </xs:complexType>
 
+    <!-- PlatformType type element -->
+    <xs:complexType name="personsElementListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="element" type="personElementType" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
     <!-- List definition for taxa -->
     <xs:complexType name="taxaElementListType">
         <xs:complexContent>
@@ -216,6 +227,7 @@
     </xs:complexType>
 
 
+
     <xs:complexType name="nationType">
         <xs:simpleContent>
             <xs:extension base="xs:integer">
@@ -230,6 +242,13 @@
                 <xs:attribute name="description" type="xs:string" />
             </xs:extension>
         </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="personElementType">
+        <xs:sequence>
+            <xs:element name="firstname" type="xs:string" />
+            <xs:element name="familyname" type="xs:string" />
+        </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="institutionType">
