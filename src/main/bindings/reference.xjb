@@ -10,7 +10,7 @@
     <!--
     This document is referenced from the pom and is used to change the generated classes.
     The following has been added. -->
-    <jxb:bindings schemaLocation="../resources/reference.xsd" node="/xs:schema">
+    <jxb:bindings schemaLocation="../resources/referencev1.xsd" node="/xs:schema">
         <jxb:globalBindings>
             <jxb:serializable uid="1" />
         </jxb:globalBindings>
@@ -18,7 +18,7 @@
             <jxb:package name="no.imr.commons.nmdreference.domain.v1" />
         </jxb:schemaBindings>
         <jxb:bindings>
-            <namespace:prefix name="ref" />
+            <namespace:prefix name="" />
         </jxb:bindings>
 
         <jxb:bindings node="//xs:complexType[@name='acousticCategoryElementListType']">

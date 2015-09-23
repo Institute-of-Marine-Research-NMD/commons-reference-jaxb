@@ -30,9 +30,20 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <packageLevelAnnotations>false</packageLevelAnnotations>
-                            <schemaDirectory>${basedir}/src/main/resources</schemaDirectory>
-                            <forceRegenerate>true</forceRegenerate>
+                            <packageLevelAnnotations>true</packageLevelAnnotations>
+                            <schemas>
+                                <schema>
+                                    <fileset>
+                                        <directory>${basedir}/src/main/resources</directory>
+                                        <includes>
+                                            <include>referencev1</include>
+                                        </includes>
+                                        <excludes>
+                                            <exclude>*.*</exclude>
+                                        </excludes>
+                                    </fileset>
+                                </schema>
+                            </schemas>
                             <generateDirectory>${project.build.directory}/generated-sources/xjc</generateDirectory>
                             <verbose>true</verbose>
                             <bindingDirectory>${basedir}/src/main/bindings</bindingDirectory>
