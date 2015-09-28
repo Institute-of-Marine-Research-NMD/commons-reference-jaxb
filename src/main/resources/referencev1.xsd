@@ -274,7 +274,7 @@
             <xs:element name="taxaSynonyms" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="synonym" minOccurs="1" maxOccurs="unbounded">
+                        <xs:element name="synonym" minOccurs="0" maxOccurs="unbounded">
                             <xs:complexType>
                                 <xs:attribute name="language" type="xs:string" />
                                 <xs:attribute name="name" type="xs:string" />
