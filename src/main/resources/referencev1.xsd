@@ -209,7 +209,7 @@
             <xs:element name="platformCodes" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="platformCode" minOccurs="1" maxOccurs="unbounded">
+                        <xs:element name="platformCode" minOccurs="0" maxOccurs="unbounded">
                             <xs:complexType>
                                 <xs:attribute name="validFrom" type="xs:dateTime" />
                                 <xs:attribute name="validTo" type="xs:dateTime" />
