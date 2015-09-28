@@ -204,7 +204,7 @@
     <xs:complexType name="platformElementType">
         <xs:sequence>
             <xs:element name="nation" type="nationType" />
-            <xs:element name="institution" type="institutionType" />
+            <xs:element name="institution" type="institutionType" minOccurs="0" maxOccurs="1" />
             <xs:element name="platformType" type="platformType" />
             <xs:element name="platformCodes" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
