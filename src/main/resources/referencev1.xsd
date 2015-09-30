@@ -226,8 +226,6 @@
         <xs:attribute name="platformNumber" type="xs:int" />
     </xs:complexType>
 
-
-
     <xs:complexType name="nationType">
         <xs:simpleContent>
             <xs:extension base="xs:integer">
