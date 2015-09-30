@@ -294,6 +294,7 @@
         <xs:attribute name="information" type="xs:string"/>
         <xs:attribute name="pgnapes" type="xs:string"/>
         <xs:attribute name="ruCode" type="xs:int"/>
+        <xs:attribute name="validStatus" type="xs:int"/>
     </xs:complexType>
 
     <!-- Stock element type. Used in taxa element-->
