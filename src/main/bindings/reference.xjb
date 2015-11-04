@@ -86,5 +86,10 @@
                 <annox:annotate annox:class="javax.xml.bind.annotation.XmlRootElement" name="persons"/>
             </annox:annotate>
         </jxb:bindings>
+        <jxb:bindings node="//xs:complexType[@name='gearsType']">
+            <annox:annotate>
+                <annox:annotate annox:class="javax.xml.bind.annotation.XmlRootElement" name="gears"/>
+            </annox:annotate>
+        </jxb:bindings>
     </jxb:bindings>
 </jxb:bindings>

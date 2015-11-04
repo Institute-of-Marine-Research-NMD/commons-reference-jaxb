@@ -402,4 +402,63 @@
             <xs:element name="lastChanged" type="xs:dateTime"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:complexType name="gearsType">
+        <xs:sequence>
+            <xs:element name="selectedEvent" type="xs:string" />
+            <xs:element name="eventType" type="xs:int" />
+            <xs:element name="activityId" type="xs:int" />
+            <xs:element name="currentYear" type="xs:int" />
+            <xs:element name="mainGroups" type="MainGroupType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="gears" type="GearType" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GearType">
+        <xs:sequence>
+            <xs:element name="uuid" type="LSType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="name" type="LSType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="mainGroup" type="MainGroupRefType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="code" type="LSType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="gearCode" type="LSType" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MainGroupRefType">
+        <xs:sequence>
+            <xs:element name="uuid" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="show" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MainGroupType">
+        <xs:sequence>
+            <xs:element name="uuid" type="LSType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="name" type="LSType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="ls" type="LSType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="autoStop" type="LSType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="serialNumber" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="depthMin" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="depthMax" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="wireLength" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="instrument_sea" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="instrument_clouds" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="instrument_ice" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="landerType" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="type" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="quantity" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="opening" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="spread" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="depth" type="LSType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="comments" type="LSType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LSType">
+        <xs:sequence>
+            <xs:element name="value" type="xs:string" />
+            <xs:element name="show" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
