@@ -15,6 +15,7 @@
     <xs:element name="institutionList" type="institutionElementListType" />
     <xs:element name="list" type="keyValueElementListType" />
     <xs:element name="tableList" type="tableListElementListType" />
+    <xs:element name="gearGroups" type="gearGroupsListType" />
     <!--
             List element types.
     -->
@@ -403,15 +404,19 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="gearsType">
-        <xs:sequence>
-            <xs:element name="selectedEvent" type="xs:string" />
-            <xs:element name="eventType" type="xs:int" />
-            <xs:element name="activityId" type="xs:int" />
-            <xs:element name="currentYear" type="xs:int" />
-            <xs:element name="mainGroups" type="MainGroupType" minOccurs="1" maxOccurs="1" />
-            <xs:element name="gears" type="GearType" minOccurs="1" maxOccurs="1" />
-        </xs:sequence>
+    <xs:complexType name="gearGroupsListType">
+        <xs:complexContent>
+            <xs:extension base="listHeaderAbstractType">
+                <xs:sequence>
+                    <xs:element name="selectedEvent" type="xs:string" minOccurs="0" />
+                    <xs:element name="eventType" type="xs:int" />
+                    <xs:element name="activityId" type="xs:int" />
+                    <xs:element name="currentYear" type="xs:int" />
+                    <xs:element name="mainGroups" type="MainGroupType" minOccurs="1" maxOccurs="unbounded" />
+                    <xs:element name="gears" type="GearType" minOccurs="1" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="GearType">
